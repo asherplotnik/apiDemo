@@ -1,0 +1,3 @@
+this is a java spring service it will simulate 7 bank APIs services to fetch data. you need to create 7 endpoints to serve the data.
+in the APIs folder there are the 7 endpoints each with swagger and output sample. create 7 RestController classes each for the endpoint relevant. 
+i do this seperation intentionally. it will fetch the data from the json that was created. the data fetching will be in the service layer not directly in the restcontroller.
