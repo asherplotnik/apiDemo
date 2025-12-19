@@ -24,6 +24,12 @@ paths:
         - Deposits
 
       parameters:
+        - name: customerID
+          in: header
+          required: true
+          description: Customer ID
+          schema:
+            type: string
         - name: asOfDate
           in: query
           required: true
@@ -71,7 +77,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DepositsResponse"
+                $ref: "#/components/schemas/DepositsDocument"
 
         "400":
           description: Invalid request
@@ -115,27 +121,20 @@ components:
       bearerFormat: JWT
 
   schemas:
-    DepositsResponse:
+    DepositsDocument:
       type: object
       required:
-        - requestContext
+        - _id
         - customer
         - data
-        - metadata
-        - errors
       properties:
-        requestContext:
-          $ref: "#/components/schemas/RequestContext"
+        _id:
+          type: string
+          description: Customer ID (MongoDB document ID)
         customer:
           $ref: "#/components/schemas/CustomerInfo"
         data:
           $ref: "#/components/schemas/DepositsData"
-        metadata:
-          $ref: "#/components/schemas/ResponseMetadata"
-        errors:
-          type: array
-          items:
-            $ref: "#/components/schemas/ErrorResponse"
 
     RequestContext:
       type: object

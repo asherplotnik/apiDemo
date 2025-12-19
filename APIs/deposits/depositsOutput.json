@@ -1,23 +1,5 @@
 {
-  "requestContext": {
-    "requestId": "2c4e8b3a-6f1d-4c6f-8d3f-0b8e9d1a2c33",
-    "receivedAt": "2025-12-18T18:55:10.441Z",
-    "authorization": {
-      "scheme": "Bearer",
-      "subjectType": "customer",
-      "subjectId": "CUST-87234199",
-      "scopes": ["deposits:read"]
-    },
-    "query": {
-      "asOfDate": "2025-12-18",
-      "timezone": "Asia/Jerusalem",
-      "includeClosed": false,
-      "page": {
-        "size": 50,
-        "cursor": null
-      }
-    }
-  },
+  "_id": "87234199",
   "customer": {
     "customerId": "CUST-87234199",
     "cifId": "CIF-118802771",
@@ -37,7 +19,7 @@
           "openedDate": "2025-06-10",
           "maturityDate": "2026-06-10",
           "tenorDays": 365,
-          "principal": 50000.0,
+          "principal": 50000,
           "interestRate": {
             "rateType": "FIXED",
             "annualRate": 0.041,
@@ -63,9 +45,9 @@
         },
         "balances": {
           "asOf": "2025-12-18T18:55:08.000Z",
-          "principalOutstanding": 50000.0,
+          "principalOutstanding": 50000,
           "accruedInterest": 1062.33,
-          "estimatedMaturityValue": 52050.0
+          "estimatedMaturityValue": 52050
         },
         "features": {
           "autoRenewal": {
@@ -81,8 +63,8 @@
         },
         "transactionsSummary": {
           "transactionCount": 2,
-          "totalCredits": 50000.0,
-          "totalDebits": 0.0,
+          "totalCredits": 50000,
+          "totalDebits": 0,
           "lastActivityDate": "2025-06-10"
         },
         "transactions": [
@@ -90,7 +72,7 @@
             "transactionId": "DEP-TRX-ILS-0001",
             "type": "OPENING",
             "status": "BOOKED",
-            "amount": 50000.0,
+            "amount": 50000,
             "currency": "ILS",
             "bookingDate": "2025-06-10",
             "description": "TERM DEPOSIT OPENING - FUNDING"
@@ -99,7 +81,7 @@
             "transactionId": "DEP-TRX-ILS-0002",
             "type": "INSTRUCTION",
             "status": "BOOKED",
-            "amount": 0.0,
+            "amount": 0,
             "currency": "ILS",
             "bookingDate": "2025-06-10",
             "description": "AUTO-RENEWAL ENABLED"
@@ -116,7 +98,7 @@
           "openedDate": "2024-10-02",
           "maturityDate": null,
           "tenorDays": null,
-          "principal": 10000.0,
+          "principal": 10000,
           "interestRate": {
             "rateType": "VARIABLE",
             "annualRate": 0.028,
@@ -142,7 +124,7 @@
         },
         "balances": {
           "asOf": "2025-12-18T18:55:08.000Z",
-          "principalOutstanding": 10000.0,
+          "principalOutstanding": 10000,
           "accruedInterest": 19.44,
           "estimatedMaturityValue": null
         },
@@ -160,8 +142,8 @@
         },
         "transactionsSummary": {
           "transactionCount": 3,
-          "totalCredits": 10000.0,
-          "totalDebits": 500.0,
+          "totalCredits": 10000,
+          "totalDebits": 500,
           "lastActivityDate": "2025-12-01"
         },
         "transactions": [
@@ -169,7 +151,7 @@
             "transactionId": "DEP-TRX-USD-1001",
             "type": "OPENING",
             "status": "BOOKED",
-            "amount": 10000.0,
+            "amount": 10000,
             "currency": "USD",
             "bookingDate": "2024-10-02",
             "description": "SAVINGS DEPOSIT OPENING - FUNDING"
@@ -187,20 +169,14 @@
             "transactionId": "DEP-TRX-USD-1003",
             "type": "WITHDRAWAL",
             "status": "BOOKED",
-            "amount": 500.0,
+            "amount": 500,
             "currency": "USD",
             "bookingDate": "2025-11-20",
             "description": "ON-DEMAND WITHDRAWAL"
           }
         ]
       }
-    ],
-    "cifLookup": {
-      "source": "CIF",
-      "resolvedAt": "2025-12-18T18:55:08.231Z",
-      "eligibleAccountTypes": ["DEPOSIT"],
-      "excludedAccountTypes": ["CURRENT", "CURRENT_FOREIGN", "CREDIT_CARD", "LOAN", "MORTGAGE", "INVESTMENT"]
-    }
+    ]
   },
   "metadata": {
     "schemaVersion": "1.0.0",
@@ -213,6 +189,5 @@
       "Estimated maturity value is provided only for term deposits.",
       "Variable rates may change according to product rules."
     ]
-  },
-  "errors": []
+  }
 }

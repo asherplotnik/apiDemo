@@ -26,6 +26,12 @@ paths:
         - Current Accounts
         - Transactions
       parameters:
+        - name: customerID
+          in: header
+          required: true
+          description: Customer ID
+          schema:
+            type: string
         - name: fromDate
           in: query
           required: true
@@ -82,7 +88,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AccountsTransactionsResponse"
+                $ref: "#/components/schemas/AccountsTransactionsDocument"
               examples:
                 sample:
                   summary: Example response
@@ -235,22 +241,17 @@ components:
       bearerFormat: JWT
 
   schemas:
-    AccountsTransactionsResponse:
+    AccountsTransactionsDocument:
       type: object
-      required: [requestContext, customer, data, metadata, errors]
+      required: [_id, customer, data]
       properties:
-        requestContext:
-          $ref: "#/components/schemas/RequestContext"
+        _id:
+          type: string
+          description: Customer ID (MongoDB document ID)
         customer:
           $ref: "#/components/schemas/CustomerInfo"
         data:
           $ref: "#/components/schemas/AccountsTransactionsData"
-        metadata:
-          $ref: "#/components/schemas/ResponseMetadata"
-        errors:
-          type: array
-          items:
-            $ref: "#/components/schemas/ErrorResponse"
 
     RequestContext:
       type: object

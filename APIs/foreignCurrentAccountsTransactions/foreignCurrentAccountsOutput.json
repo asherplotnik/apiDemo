@@ -1,24 +1,5 @@
 {
-  "requestContext": {
-    "requestId": "c7b6b8f4-2a1b-4e4e-9c3e-4d1f0acb1f12",
-    "receivedAt": "2025-12-18T18:12:44.091Z",
-    "authorization": {
-      "scheme": "Bearer",
-      "subjectType": "customer",
-      "subjectId": "CUST-87234199",
-      "scopes": ["accounts:read", "transactions:read", "fx:read"]
-    },
-    "query": {
-      "fromDate": "2025-12-01",
-      "toDate": "2025-12-18",
-      "timezone": "Asia/Jerusalem",
-      "includePending": true,
-      "page": {
-        "size": 100,
-        "cursor": null
-      }
-    }
-  },
+  "_id": "87234199",
   "customer": {
     "customerId": "CUST-87234199",
     "cifId": "CIF-118802771",
@@ -52,16 +33,16 @@
           "asOf": "2025-12-18T18:12:42.000Z",
           "available": 4210.55,
           "current": 4210.55,
-          "creditLimit": 0.0,
-          "overdraftLimit": 0.0,
-          "holds": 0.0
+          "creditLimit": 0,
+          "overdraftLimit": 0,
+          "holds": 0
         },
         "transactionsSummary": {
           "fromDate": "2025-12-01",
           "toDate": "2025-12-18",
           "transactionCount": 9,
           "totalDebits": 615.32,
-          "totalCredits": 1500.0,
+          "totalCredits": 1500,
           "largestDebit": {
             "amount": 220.5,
             "currency": "USD",
@@ -70,7 +51,7 @@
             "description": "HOTEL BOOKING"
           },
           "largestCredit": {
-            "amount": 1500.0,
+            "amount": 1500,
             "currency": "USD",
             "transactionId": "TRX-FX-7c2d9011",
             "bookingDate": "2025-12-03",
@@ -78,7 +59,7 @@
           },
           "ilsEquivalent": {
             "totalDebitsIls": 2294.66,
-            "totalCreditsIls": 5592.0,
+            "totalCreditsIls": 5592,
             "fxMethod": "HISTORICAL_RATE_PER_TRANSACTION"
           }
         },
@@ -87,7 +68,7 @@
             "transactionId": "TRX-FX-7c2d9011",
             "type": "CREDIT",
             "status": "BOOKED",
-            "amount": 1500.0,
+            "amount": 1500,
             "currency": "USD",
             "bookingDate": "2025-12-03",
             "valueDate": "2025-12-03",
@@ -117,7 +98,7 @@
               "rateType": "MID",
               "source": "BANK_FX_FIXING",
               "appliedTo": "VALUE_DATE",
-              "convertedAmountIls": 5580.0
+              "convertedAmountIls": 5580
             }
           },
           {
@@ -148,7 +129,9 @@
             },
             "enrichment": {
               "normalizedDescription": "Hotel",
-              "tags": ["travel"]
+              "tags": [
+                "travel"
+              ]
             },
             "fxRate": {
               "baseCurrency": "USD",
@@ -189,7 +172,9 @@
             },
             "enrichment": {
               "normalizedDescription": "Cafe",
-              "tags": ["card_present"]
+              "tags": [
+                "card_present"
+              ]
             },
             "fxRate": {
               "baseCurrency": "USD",
@@ -229,7 +214,9 @@
             },
             "enrichment": {
               "normalizedDescription": "Ride Hailing",
-              "tags": ["pending"]
+              "tags": [
+                "pending"
+              ]
             },
             "fxRate": {
               "baseCurrency": "USD",
@@ -273,25 +260,25 @@
           "asOf": "2025-12-18T18:12:42.000Z",
           "available": 980.12,
           "current": 980.12,
-          "creditLimit": 0.0,
-          "overdraftLimit": 0.0,
-          "holds": 0.0
+          "creditLimit": 0,
+          "overdraftLimit": 0,
+          "holds": 0
         },
         "transactionsSummary": {
           "fromDate": "2025-12-01",
           "toDate": "2025-12-18",
           "transactionCount": 4,
-          "totalDebits": 185.0,
-          "totalCredits": 500.0,
+          "totalDebits": 185,
+          "totalCredits": 500,
           "largestDebit": {
-            "amount": 120.0,
+            "amount": 120,
             "currency": "EUR",
             "transactionId": "TRX-FX-EUR-77a1",
             "bookingDate": "2025-12-06",
             "description": "AIRPORT PARKING"
           },
           "largestCredit": {
-            "amount": 500.0,
+            "amount": 500,
             "currency": "EUR",
             "transactionId": "TRX-FX-EUR-11b2",
             "bookingDate": "2025-12-02",
@@ -299,7 +286,7 @@
           },
           "ilsEquivalent": {
             "totalDebitsIls": 758.5,
-            "totalCreditsIls": 2075.0,
+            "totalCreditsIls": 2075,
             "fxMethod": "HISTORICAL_RATE_PER_TRANSACTION"
           }
         },
@@ -308,7 +295,7 @@
             "transactionId": "TRX-FX-EUR-11b2",
             "type": "CREDIT",
             "status": "BOOKED",
-            "amount": 500.0,
+            "amount": 500,
             "currency": "EUR",
             "bookingDate": "2025-12-02",
             "valueDate": "2025-12-02",
@@ -338,14 +325,14 @@
               "rateType": "MID",
               "source": "BANK_FX_FIXING",
               "appliedTo": "VALUE_DATE",
-              "convertedAmountIls": 2075.0
+              "convertedAmountIls": 2075
             }
           },
           {
             "transactionId": "TRX-FX-EUR-77a1",
             "type": "DEBIT",
             "status": "BOOKED",
-            "amount": 120.0,
+            "amount": 120,
             "currency": "EUR",
             "bookingDate": "2025-12-06",
             "valueDate": "2025-12-06",
@@ -387,13 +374,7 @@
           "nextCursor": null
         }
       }
-    ],
-    "cifLookup": {
-      "source": "CIF",
-      "resolvedAt": "2025-12-18T18:12:42.321Z",
-      "eligibleAccountTypes": ["CURRENT_FOREIGN"],
-      "excludedAccountTypes": ["CURRENT", "LOAN", "MORTGAGE", "CREDIT_CARD", "INVESTMENT"]
-    }
+    ]
   },
   "metadata": {
     "schemaVersion": "1.0.0",
@@ -407,6 +388,5 @@
       "FX rates are indicative for pending transactions and may be finalized at booking.",
       "Converted ILS amounts are calculated per transaction based on the provided historical/indicative rate."
     ]
-  },
-  "errors": []
+  }
 }

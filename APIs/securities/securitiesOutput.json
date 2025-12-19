@@ -1,23 +1,5 @@
 {
-  "requestContext": {
-    "requestId": "a2d3c4b5-6e7f-4a1b-9c2d-1e3f4a5b6c7d",
-    "receivedAt": "2025-12-18T19:27:42.901Z",
-    "authorization": {
-      "scheme": "Bearer",
-      "subjectType": "customer",
-      "subjectId": "CUST-87234199",
-      "scopes": ["securities:read", "positions:read"]
-    },
-    "query": {
-      "asOfDate": "2025-12-18",
-      "timezone": "Asia/Jerusalem",
-      "includeClosed": false,
-      "page": {
-        "size": 50,
-        "cursor": null
-      }
-    }
-  },
+  "_id": "87234199",
   "customer": {
     "customerId": "CUST-87234199",
     "cifId": "CIF-118802771",
@@ -41,7 +23,7 @@
           "asOf": "2025-12-18T19:27:40.000Z",
           "baseCurrency": "ILS",
           "marketValueBase": 186540.22,
-          "cashBalanceBase": 12450.0,
+          "cashBalanceBase": 12450,
           "totalValueBase": 198990.22
         },
         "positionsSummary": {
@@ -76,7 +58,7 @@
               "exchange": "NASDAQ",
               "currency": "USD"
             },
-            "quantity": 12.0,
+            "quantity": 12,
             "averageCost": {
               "amount": 225.4,
               "currency": "USD"
@@ -116,7 +98,7 @@
               "exchange": "NASDAQ",
               "currency": "USD"
             },
-            "quantity": 25.0,
+            "quantity": 25,
             "averageCost": {
               "amount": 375.2,
               "currency": "USD"
@@ -156,7 +138,7 @@
               "exchange": "NYSE",
               "currency": "USD"
             },
-            "quantity": 200.0,
+            "quantity": 200,
             "averageCost": {
               "amount": 10.12,
               "currency": "USD"
@@ -168,7 +150,7 @@
               "source": "DELAYED"
             },
             "marketValue": {
-              "amount": 2208.0,
+              "amount": 2208,
               "currency": "USD"
             },
             "fxRateToBase": {
@@ -180,7 +162,7 @@
             },
             "marketValueBase": 8095.36,
             "unrealizedPnl": {
-              "amount": 184.0,
+              "amount": 184,
               "currency": "USD"
             },
             "unrealizedPnlBase": 675.28
@@ -196,28 +178,28 @@
               "exchange": "TASE",
               "currency": "ILS"
             },
-            "quantity": 40.0,
+            "quantity": 40,
             "averageCost": {
-              "amount": 1880.0,
+              "amount": 1880,
               "currency": "ILS"
             },
             "marketPrice": {
-              "amount": 1925.0,
+              "amount": 1925,
               "currency": "ILS",
               "priceTimestamp": "2025-12-18T17:00:00.000Z",
               "source": "CLOSE"
             },
             "marketValue": {
-              "amount": 77000.0,
+              "amount": 77000,
               "currency": "ILS"
             },
             "fxRateToBase": null,
-            "marketValueBase": 77000.0,
+            "marketValueBase": 77000,
             "unrealizedPnl": {
-              "amount": 1800.0,
+              "amount": 1800,
               "currency": "ILS"
             },
-            "unrealizedPnlBase": 1800.0
+            "unrealizedPnlBase": 1800
           },
           {
             "positionId": "POS-0005",
@@ -230,23 +212,23 @@
               "exchange": "TASE",
               "currency": "ILS"
             },
-            "quantity": 1.0,
+            "quantity": 1,
             "averageCost": {
               "amount": 3989.6,
               "currency": "ILS"
             },
             "marketPrice": {
-              "amount": 4025.0,
+              "amount": 4025,
               "currency": "ILS",
               "priceTimestamp": "2025-12-18T17:00:00.000Z",
               "source": "CLOSE"
             },
             "marketValue": {
-              "amount": 4025.0,
+              "amount": 4025,
               "currency": "ILS"
             },
             "fxRateToBase": null,
-            "marketValueBase": 4025.0,
+            "marketValueBase": 4025,
             "unrealizedPnl": {
               "amount": 35.4,
               "currency": "ILS"
@@ -255,13 +237,7 @@
           }
         ]
       }
-    ],
-    "cifLookup": {
-      "source": "CIF",
-      "resolvedAt": "2025-12-18T19:27:40.221Z",
-      "eligibleAccountTypes": ["SECURITIES"],
-      "excludedAccountTypes": ["CURRENT", "CURRENT_FOREIGN", "CREDIT_CARD", "LOAN", "MORTGAGE", "DEPOSIT"]
-    }
+    ]
   },
   "metadata": {
     "schemaVersion": "1.0.0",
@@ -274,6 +250,5 @@
       "FX rates are indicative and may differ from execution rates.",
       "Values shown are for informational purposes only."
     ]
-  },
-  "errors": []
+  }
 }

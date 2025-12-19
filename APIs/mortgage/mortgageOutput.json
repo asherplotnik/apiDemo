@@ -1,23 +1,5 @@
 {
-  "requestContext": {
-    "requestId": "1b6d0d3e-9f2b-4e1a-8b0c-2f7d9a33c8aa",
-    "receivedAt": "2025-12-18T19:18:05.224Z",
-    "authorization": {
-      "scheme": "Bearer",
-      "subjectType": "customer",
-      "subjectId": "CUST-87234199",
-      "scopes": ["mortgages:read"]
-    },
-    "query": {
-      "asOfDate": "2025-12-18",
-      "timezone": "Asia/Jerusalem",
-      "includeClosed": false,
-      "page": {
-        "size": 50,
-        "cursor": null
-      }
-    }
-  },
+  "_id": "87234199",
   "customer": {
     "customerId": "CUST-87234199",
     "cifId": "CIF-118802771",
@@ -47,7 +29,7 @@
             },
             "propertyType": "APARTMENT"
           },
-          "principalOriginal": 1200000.0,
+          "principalOriginal": 1200000,
           "ownership": {
             "borrowers": [
               {
@@ -65,7 +47,7 @@
           "asOf": "2025-12-18T19:18:03.000Z",
           "principalOutstanding": 932450.55,
           "accruedInterest": 2140.12,
-          "accruedFees": 0.0,
+          "accruedFees": 0,
           "totalOutstanding": 934590.67,
           "nextPayment": {
             "paymentDate": "2026-01-05",
@@ -74,7 +56,7 @@
             "breakdown": {
               "principal": 3720.11,
               "interest": 2400.33,
-              "fees": 0.0
+              "fees": 0
             }
           }
         },
@@ -91,7 +73,7 @@
             "segmentType": "PRIME_LINKED",
             "currency": "ILS",
             "status": "ACTIVE",
-            "principalOriginal": 500000.0,
+            "principalOriginal": 500000,
             "principalOutstanding": 372110.2,
             "interestRate": {
               "rateType": "VARIABLE",
@@ -111,13 +93,13 @@
             "segmentType": "CPI_LINKED_FIXED",
             "currency": "ILS",
             "status": "ACTIVE",
-            "principalOriginal": 700000.0,
+            "principalOriginal": 700000,
             "principalOutstanding": 560340.35,
             "interestRate": {
               "rateType": "FIXED",
               "annualRate": 0.036,
               "indexName": "CPI",
-              "spread": 0.0,
+              "spread": 0,
               "resetFrequency": null,
               "dayCountConvention": "ACT_365"
             },
@@ -138,7 +120,7 @@
         "transactionsSummary": {
           "transactionCount": 3,
           "totalDebits": 18361.32,
-          "totalCredits": 0.0,
+          "totalCredits": 0,
           "lastActivityDate": "2025-12-05"
         },
         "transactions": [
@@ -171,13 +153,7 @@
           }
         ]
       }
-    ],
-    "cifLookup": {
-      "source": "CIF",
-      "resolvedAt": "2025-12-18T19:18:03.231Z",
-      "eligibleAccountTypes": ["MORTGAGE"],
-      "excludedAccountTypes": ["CURRENT", "CURRENT_FOREIGN", "CREDIT_CARD", "LOAN", "DEPOSIT", "INVESTMENT"]
-    }
+    ]
   },
   "metadata": {
     "schemaVersion": "1.0.0",
@@ -189,6 +165,5 @@
       "Segment rates and index linkages may affect future payments.",
       "Early repayment fees may vary by segment and regulation."
     ]
-  },
-  "errors": []
+  }
 }

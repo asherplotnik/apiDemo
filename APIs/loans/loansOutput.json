@@ -1,23 +1,5 @@
 {
-  "requestContext": {
-    "requestId": "6f2a1b9c-0d1e-4c2a-9f55-4c0d9a2b1e77",
-    "receivedAt": "2025-12-18T19:06:40.112Z",
-    "authorization": {
-      "scheme": "Bearer",
-      "subjectType": "customer",
-      "subjectId": "CUST-87234199",
-      "scopes": ["loans:read"]
-    },
-    "query": {
-      "asOfDate": "2025-12-18",
-      "timezone": "Asia/Jerusalem",
-      "includeClosed": false,
-      "page": {
-        "size": 50,
-        "cursor": null
-      }
-    }
-  },
+  "_id": "87234199",
   "customer": {
     "customerId": "CUST-87234199",
     "cifId": "CIF-118802771",
@@ -36,7 +18,7 @@
           "status": "ACTIVE",
           "openedDate": "2023-03-15",
           "maturityDate": "2027-03-15",
-          "principalOriginal": 85000.0,
+          "principalOriginal": 85000,
           "interestRate": {
             "rateType": "VARIABLE",
             "annualRate": 0.067,
@@ -74,7 +56,7 @@
           "nextInstallmentBreakdown": {
             "principal": 1550.8,
             "interest": 346.42,
-            "fees": 0.0
+            "fees": 0
           }
         },
         "schedule": {
@@ -92,7 +74,7 @@
         "transactionsSummary": {
           "transactionCount": 3,
           "totalDebits": 5691.66,
-          "totalCredits": 0.0,
+          "totalCredits": 0,
           "lastActivityDate": "2025-12-15"
         },
         "transactions": [
@@ -134,7 +116,7 @@
           "status": "ACTIVE",
           "openedDate": "2022-09-01",
           "maturityDate": "2028-09-01",
-          "principalOriginal": 12000.0,
+          "principalOriginal": 12000,
           "interestRate": {
             "rateType": "FIXED",
             "annualRate": 0.054,
@@ -165,14 +147,14 @@
         },
         "balances": {
           "asOf": "2025-12-18T19:06:38.000Z",
-          "principalOutstanding": 8340.0,
+          "principalOutstanding": 8340,
           "accruedInterest": 12.51,
           "totalOutstanding": 8352.51,
           "nextInstallmentAmount": 186.4,
           "nextInstallmentBreakdown": {
             "principal": 148.9,
             "interest": 37.5,
-            "fees": 0.0
+            "fees": 0
           }
         },
         "schedule": {
@@ -183,14 +165,14 @@
           "earlyRepayment": {
             "allowed": true,
             "feeType": "NONE",
-            "feeRate": 0.0,
+            "feeRate": 0,
             "notes": "No early repayment fee for this product."
           }
         },
         "transactionsSummary": {
           "transactionCount": 2,
           "totalDebits": 372.8,
-          "totalCredits": 0.0,
+          "totalCredits": 0,
           "lastActivityDate": "2025-12-01"
         },
         "transactions": [
@@ -214,13 +196,7 @@
           }
         ]
       }
-    ],
-    "cifLookup": {
-      "source": "CIF",
-      "resolvedAt": "2025-12-18T19:06:38.241Z",
-      "eligibleAccountTypes": ["LOAN"],
-      "excludedAccountTypes": ["CURRENT", "CURRENT_FOREIGN", "CREDIT_CARD", "MORTGAGE", "DEPOSIT", "INVESTMENT"]
-    }
+    ]
   },
   "metadata": {
     "schemaVersion": "1.0.0",
@@ -232,6 +208,5 @@
       "Accrued interest is indicative and may change until posting.",
       "Installment breakdown is estimated and may differ on posting date."
     ]
-  },
-  "errors": []
+  }
 }
