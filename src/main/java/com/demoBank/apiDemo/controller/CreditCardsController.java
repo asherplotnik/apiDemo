@@ -2,6 +2,7 @@ package com.demoBank.apiDemo.controller;
 
 import com.demoBank.apiDemo.service.CreditCardsService;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.bson.Document;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,8 @@ public class CreditCardsController {
     }
 
     @GetMapping("/transactions")
-    public ResponseEntity<JsonNode> getCreditCardsTransactions(
+    public ResponseEntity<Document> getCreditCardsTransactions(
+            @RequestHeader String customerID,
             @RequestParam String fromDate,
             @RequestParam String toDate,
             @RequestParam(required = false, defaultValue = "true") Boolean includePending,
@@ -26,7 +28,7 @@ public class CreditCardsController {
             @RequestParam(required = false) String cursor,
             @RequestParam(required = false, defaultValue = "Asia/Jerusalem") String timezone) {
         try {
-            JsonNode data = creditCardsService.getCreditCardsData();
+            Document data = creditCardsService.getCreditCardsData(customerID);
             return ResponseEntity.ok(data);
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();

@@ -23,11 +23,11 @@
     }
   },
   "customer": {
-    "customerId": "CUST-87234199",
-    "cifId": "CIF-118802771",
-    "customerType": "RETAIL",
-    "segment": "STANDARD",
-    "residencyCountry": "IL"
+  "customerId": "CUST-87234199",
+  "cifId": "CIF-118802771",
+  "customerType": "RETAIL",
+  "segment": "STANDARD",
+  "residencyCountry": "IL"
   },
   "data": {
     "accounts": [

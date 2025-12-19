@@ -1,22 +1,19 @@
 package com.demoBank.apiDemo.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.demoBank.apiDemo.repository.GenericMongoRepository;
+import org.bson.Document;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Service
 public class SecuritiesService {
+    private final GenericMongoRepository repository;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    public SecuritiesService(GenericMongoRepository repository) {
+        this.repository = repository;
+    }
 
-    public JsonNode getSecuritiesData() throws IOException {
-        String jsonPath = "APIs/securities/securitiesOutput.json";
-        String jsonContent = new String(Files.readAllBytes(Paths.get(jsonPath)));
-        return objectMapper.readTree(jsonContent);
+    public Document getSecuritiesData(String customerID) throws IOException {
+        return repository.findById("securities", customerID);
     }
 }
-

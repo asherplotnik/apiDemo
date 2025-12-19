@@ -1,23 +1,20 @@
 package com.demoBank.apiDemo.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.demoBank.apiDemo.repository.GenericMongoRepository;
+import org.bson.Document;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Service
 public class CreditCardsService {
+    private final GenericMongoRepository repository;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    public CreditCardsService(GenericMongoRepository repository) {
+        this.repository = repository;
+    }
 
-    public JsonNode getCreditCardsData() throws IOException {
-        // Read JSON file from APIs folder (relative to project root)
-        String jsonPath = "APIs/creditCards/creditCardsOutput.json";
-        String jsonContent = new String(Files.readAllBytes(Paths.get(jsonPath)));
-        return objectMapper.readTree(jsonContent);
+    public Document getCreditCardsData(String customerID) throws IOException {
+        return repository.findById("creditCards", customerID);
     }
 }
 

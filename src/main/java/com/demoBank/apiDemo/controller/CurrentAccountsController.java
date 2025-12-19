@@ -1,7 +1,7 @@
 package com.demoBank.apiDemo.controller;
 
 import com.demoBank.apiDemo.service.CurrentAccountsService;
-import com.fasterxml.jackson.databind.JsonNode;
+import org.bson.Document;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +18,8 @@ public class CurrentAccountsController {
     }
 
     @GetMapping("/transactions")
-    public ResponseEntity<JsonNode> getCurrentAccountsTransactions(
+    public ResponseEntity<Document> getCurrentAccountsTransactions(
+            @RequestHeader String customerID,
             @RequestParam String fromDate,
             @RequestParam String toDate,
             @RequestParam(required = false, defaultValue = "true") Boolean includePending,
@@ -26,7 +27,7 @@ public class CurrentAccountsController {
             @RequestParam(required = false) String cursor,
             @RequestParam(required = false, defaultValue = "Asia/Jerusalem") String timezone) {
         try {
-            JsonNode data = currentAccountsService.getCurrentAccountsData();
+            Document data = currentAccountsService.getCurrentAccountsData(customerID);
             return ResponseEntity.ok(data);
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();

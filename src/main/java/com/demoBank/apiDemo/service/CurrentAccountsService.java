@@ -1,22 +1,19 @@
 package com.demoBank.apiDemo.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.demoBank.apiDemo.repository.GenericMongoRepository;
+import org.bson.Document;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Service
 public class CurrentAccountsService {
+    private final GenericMongoRepository repository;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    public CurrentAccountsService(GenericMongoRepository repository) {
+        this.repository = repository;
+    }
 
-    public JsonNode getCurrentAccountsData() throws IOException {
-        String jsonPath = "APIs/currentAccountTransactions/currentAccountsOutput.json";
-        String jsonContent = new String(Files.readAllBytes(Paths.get(jsonPath)));
-        return objectMapper.readTree(jsonContent);
+    public Document getCurrentAccountsData(String customerID) throws IOException {
+        return repository.findById("currentAccountTransactions", customerID);
     }
 }
-

@@ -1,7 +1,7 @@
 package com.demoBank.apiDemo.controller;
 
 import com.demoBank.apiDemo.service.LoansService;
-import com.fasterxml.jackson.databind.JsonNode;
+import org.bson.Document;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +18,14 @@ public class LoansController {
     }
 
     @GetMapping
-    public ResponseEntity<JsonNode> getLoans(
+    public ResponseEntity<Document> getLoans(
+            @RequestHeader String customerID,
             @RequestParam String asOfDate,
             @RequestParam(required = false, defaultValue = "false") Boolean includeClosed,
             @RequestParam(required = false, defaultValue = "100") Integer size,
             @RequestParam(required = false) String cursor) {
         try {
-            JsonNode data = loansService.getLoansData();
+            Document data = loansService.getLoansData(customerID);
             return ResponseEntity.ok(data);
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();
