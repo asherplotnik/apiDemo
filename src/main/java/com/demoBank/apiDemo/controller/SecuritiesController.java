@@ -23,9 +23,10 @@ public class SecuritiesController {
             @RequestParam String asOfDate,
             @RequestParam(required = false, defaultValue = "false") Boolean includeClosed,
             @RequestParam(required = false, defaultValue = "100") Integer size,
-            @RequestParam(required = false) String cursor) {
+            @RequestParam(required = false) String cursor,
+            @RequestParam(required = false, defaultValue = "true") Boolean includePositions) {
         try {
-            Document data = securitiesService.getSecuritiesData(customerID);
+            Document data = securitiesService.getSecuritiesData(customerID, includePositions);
             return ResponseEntity.ok(data);
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();

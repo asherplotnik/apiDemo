@@ -62,3 +62,14 @@ echo ""
 curl -X GET "http://localhost:8080/v1/mortgages?asOfDate=2025-12-18&nicknameFilter=Main%20Home%20Mortgage&includeTransactions=true" \
   -H "customerID: 87234199" \
   -H "Content-Type: application/json"
+
+echo ""
+echo "---"
+echo ""
+
+# Curl command to get securities
+# Includes positions (default), valuations are always included
+
+curl -X GET "http://localhost:8080/v1/securities?asOfDate=2025-12-18&includePositions=true" \
+  -H "customerID: 87234199" \
+  -H "Content-Type: application/json"
