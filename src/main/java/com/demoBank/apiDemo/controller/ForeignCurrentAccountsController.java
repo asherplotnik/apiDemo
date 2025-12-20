@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/foreign-current-accounts")
@@ -25,9 +26,11 @@ public class ForeignCurrentAccountsController {
             @RequestParam(required = false, defaultValue = "true") Boolean includePending,
             @RequestParam(required = false, defaultValue = "100") Integer pageSize,
             @RequestParam(required = false) String cursor,
-            @RequestParam(required = false, defaultValue = "Asia/Jerusalem") String timezone) {
+            @RequestParam(required = false, defaultValue = "Asia/Jerusalem") String timezone,
+            @RequestParam(required = false) List<String> currencyList,
+            @RequestParam(required = false, defaultValue = "true") Boolean includeTransactions) {
         try {
-            Document data = foreignCurrentAccountsService.getForeignCurrentAccountsData(customerID);
+            Document data = foreignCurrentAccountsService.getForeignCurrentAccountsData(customerID, fromDate, toDate, currencyList, includeTransactions);
             return ResponseEntity.ok(data);
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();
