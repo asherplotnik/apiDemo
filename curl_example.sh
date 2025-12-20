@@ -40,3 +40,25 @@ echo ""
 curl -X GET "http://localhost:8080/v1/credit-cards/transactions?fromDate=2025-12-11&toDate=2025-12-15&last4Digits=8891&includeTransactions=true" \
   -H "customerID: 87234199" \
   -H "Content-Type: application/json"
+
+echo ""
+echo "---"
+echo ""
+
+# Curl command to get loans
+# Filters by nickname "Car Loan" (case-insensitive), includes transactions
+
+curl -X GET "http://localhost:8080/v1/loans?asOfDate=2025-12-18&nicknameFilter=Car%20Loan&includeTransactions=true" \
+  -H "customerID: 87234199" \
+  -H "Content-Type: application/json"
+
+echo ""
+echo "---"
+echo ""
+
+# Curl command to get mortgages
+# Filters by nickname "Main Home Mortgage" (case-insensitive), includes transactions
+
+curl -X GET "http://localhost:8080/v1/mortgages?asOfDate=2025-12-18&nicknameFilter=Main%20Home%20Mortgage&includeTransactions=true" \
+  -H "customerID: 87234199" \
+  -H "Content-Type: application/json"
