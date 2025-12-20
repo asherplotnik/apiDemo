@@ -23,9 +23,11 @@ public class DepositsController {
             @RequestParam String asOfDate,
             @RequestParam(required = false, defaultValue = "false") Boolean includeClosed,
             @RequestParam(required = false, defaultValue = "100") Integer size,
-            @RequestParam(required = false) String cursor) {
+            @RequestParam(required = false) String cursor,
+            @RequestParam(required = false) String nicknameFilter,
+            @RequestParam(required = false, defaultValue = "true") Boolean includeTransactions) {
         try {
-            Document data = depositsService.getDepositsData(customerID);
+            Document data = depositsService.getDepositsData(customerID, asOfDate, nicknameFilter, includeTransactions);
             return ResponseEntity.ok(data);
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();

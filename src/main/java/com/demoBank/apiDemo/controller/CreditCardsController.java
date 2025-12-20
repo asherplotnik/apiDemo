@@ -25,9 +25,11 @@ public class CreditCardsController {
             @RequestParam(required = false, defaultValue = "true") Boolean includePending,
             @RequestParam(required = false, defaultValue = "25") Integer size,
             @RequestParam(required = false) String cursor,
-            @RequestParam(required = false, defaultValue = "Asia/Jerusalem") String timezone) {
+            @RequestParam(required = false, defaultValue = "Asia/Jerusalem") String timezone,
+            @RequestParam(required = false) String last4Digits,
+            @RequestParam(required = false, defaultValue = "true") Boolean includeTransactions) {
         try {
-            Document data = creditCardsService.getCreditCardsData(customerID);
+            Document data = creditCardsService.getCreditCardsData(customerID, fromDate, toDate, last4Digits, includeTransactions);
             return ResponseEntity.ok(data);
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();
