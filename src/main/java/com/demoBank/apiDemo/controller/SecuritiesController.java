@@ -20,7 +20,8 @@ public class SecuritiesController {
     @GetMapping
     public ResponseEntity<Document> getSecurities(
             @RequestHeader String customerID,
-            @RequestParam String asOfDate,
+            @RequestParam String fromDate,
+            @RequestParam String toDate,
             @RequestParam(required = false, defaultValue = "false") Boolean includeClosed,
             @RequestParam(required = false, defaultValue = "100") Integer size,
             @RequestParam(required = false) String cursor,

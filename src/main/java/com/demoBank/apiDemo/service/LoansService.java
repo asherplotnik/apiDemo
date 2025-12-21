@@ -19,7 +19,7 @@ public class LoansService {
         this.repository = repository;
     }
 
-    public Document getLoansData(String customerID, String asOfDate, String nicknameFilter, Boolean includeTransactions) throws IOException {
+    public Document getLoansData(String customerID, String fromDate, String toDate, String nicknameFilter, Boolean includeTransactions) throws IOException {
         Document res = repository.findById("loans", customerID);
         
         if (res == null) {
@@ -52,8 +52,8 @@ public class LoansService {
                 loanDoc.remove("transactions");
                 loanDoc.remove("transactionsSummary");
             } else {
-                // Filter transactions by asOfDate if transactions are included
-                filterTransactionsByDate(loanDoc, asOfDate);
+                // Filter transactions by date range if transactions are included
+                filterTransactionsByDate(loanDoc, fromDate, toDate);
             }
         }
 
@@ -82,14 +82,15 @@ public class LoansService {
         loans.removeAll(loansToRemove);
     }
 
-    private void filterTransactionsByDate(Document loanDoc, String asOfDate) {
+    private void filterTransactionsByDate(Document loanDoc, String fromDate, String toDate) {
         @SuppressWarnings("unchecked")
         List<Document> transactions = loanDoc.getList("transactions", Document.class);
         if (transactions == null || transactions.isEmpty()) {
             return;
         }
 
-        LocalDate asOf = LocalDate.parse(asOfDate, DATE_FORMATTER);
+        LocalDate from = LocalDate.parse(fromDate, DATE_FORMATTER);
+        LocalDate to = LocalDate.parse(toDate, DATE_FORMATTER);
 
         List<Document> filteredTransactions = transactions.stream()
                 .filter(transaction -> {
@@ -100,8 +101,8 @@ public class LoansService {
                     }
                     try {
                         LocalDate bookingDate = LocalDate.parse(bookingDateStr, DATE_FORMATTER);
-                        // Include transactions up to and including asOfDate
-                        return !bookingDate.isAfter(asOf);
+                        // Include transactions between fromDate and toDate (inclusive)
+                        return !bookingDate.isBefore(from) && !bookingDate.isAfter(to);
                     } catch (Exception e) {
                         return false;
                     }
